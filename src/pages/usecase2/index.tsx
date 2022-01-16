@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useState, useCallback } from "react";
-import { Layout } from "~/components/Layout";
 import { Tabs, TabList, TabItem, TabPanel } from "~/components/Tabs";
+import { ExampleOfInput, ExampleOfScrollPosition } from "~/components/Example";
 
 const UseCase2: NextPage = () => {
   const [selectedIndex, setSelectedIndex] = useState(1);
@@ -17,41 +17,31 @@ const UseCase2: NextPage = () => {
   );
 
   return (
-    <Layout>
-      <Tabs>
-        <TabList>
-          <TabItem
-            tabIndex={1}
-            selected={isTabSelected(1)}
-            onClick={handleTabClick}
-          >
-            Title 1
-          </TabItem>
-          <TabItem
-            tabIndex={2}
-            selected={isTabSelected(2)}
-            onClick={handleTabClick}
-          >
-            Title 2
-          </TabItem>
-        </TabList>
+    <Tabs>
+      <TabList>
+        <TabItem
+          tabIndex={1}
+          selected={isTabSelected(1)}
+          onClick={handleTabClick}
+        >
+          Tab 1
+        </TabItem>
+        <TabItem
+          tabIndex={2}
+          selected={isTabSelected(2)}
+          onClick={handleTabClick}
+        >
+          Tab 2
+        </TabItem>
+      </TabList>
 
-        <TabPanel show={isTabSelected(1)}>
-          <div className="overscroll-contain overflow-y-auto h-80">
-            <div className="h-96 bg-slate-200">
-              <p>Any content 1</p>
-            </div>
-          </div>
-        </TabPanel>
-        <TabPanel show={isTabSelected(2)}>
-          <p>Any content 2</p>
-          <input
-            className="caret-blue-500 focus:caret-indigo-500"
-            type="text"
-          />
-        </TabPanel>
-      </Tabs>
-    </Layout>
+      <TabPanel show={isTabSelected(1)}>
+        <ExampleOfScrollPosition />
+      </TabPanel>
+      <TabPanel show={isTabSelected(2)}>
+        <ExampleOfInput />
+      </TabPanel>
+    </Tabs>
   );
 };
 
