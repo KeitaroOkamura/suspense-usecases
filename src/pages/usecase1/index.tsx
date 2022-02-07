@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { Fragment, VoidFunctionComponent } from "react";
 import { useModal } from "~/components/FullscreenModal/hooks";
 import { FullscreenModal } from "~/components/FullscreenModal";
+import { Freeze } from "~/components/Freeze";
 import clsx from "clsx";
 
 type ContentProps = {
@@ -29,8 +30,12 @@ const UseCase1: NextPage = () => {
 
   return (
     <Fragment>
-      <Content onClick={open} />
-      <FullscreenModal show={showModal} close={close} />
+      <Freeze freeze={showModal} fallback={<p>Loading...</p>}>
+        <Content onClick={open} />
+      </Freeze>
+      <Freeze freeze={!showModal}>
+        <FullscreenModal close={close} />
+      </Freeze>
     </Fragment>
   );
 };
