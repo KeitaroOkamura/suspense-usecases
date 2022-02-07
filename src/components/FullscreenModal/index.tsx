@@ -1,4 +1,5 @@
 import type { VoidFunctionComponent, DispatchWithoutAction } from "react";
+import { ExampleOfInput, ExampleOfScrollPosition } from "~/components/Example";
 import clsx from "clsx";
 
 type FullscreenModalProps = {
@@ -42,6 +43,8 @@ export const FullscreenModal: VoidFunctionComponent<FullscreenModalProps> = ({
               <p className="text-2xl font-bold">Full Screen Modal</p>
             </div>
           </div>
+          <ExampleOfInput />
+          <ExampleOfScrollPosition />
         </div>
       </div>
     </div>
