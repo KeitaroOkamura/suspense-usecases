@@ -42,9 +42,9 @@ export const FullscreenModal: VoidFunctionComponent<FullscreenModalProps> = ({
             <div className="flex justify-between items-center pb-2">
               <p className="text-2xl font-bold">Full Screen Modal</p>
             </div>
+            <ExampleOfInput />
+            <ExampleOfScrollPosition />
           </div>
-          <ExampleOfInput />
-          <ExampleOfScrollPosition />
         </div>
       </div>
     </div>
