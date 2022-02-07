@@ -43,16 +43,14 @@ const Loadable: VoidFunctionComponent<LoadableProps> = ({
 type FreezeProps = {
   freeze: boolean;
   children: React.ReactNode;
-  fallback?: React.ReactNode;
 };
 
 export const Freeze: VoidFunctionComponent<FreezeProps> = ({
   freeze,
   children,
-  fallback = null,
 }) => {
   return (
-    <Suspense fallback={fallback}>
+    <Suspense fallback={null}>
       <Loadable freeze={freeze}>{children}</Loadable>
     </Suspense>
   );

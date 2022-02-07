@@ -30,7 +30,7 @@ const UseCase1: NextPage = () => {
 
   return (
     <Fragment>
-      <Freeze freeze={showModal} fallback={<p>Loading...</p>}>
+      <Freeze freeze={showModal}>
         <Content onClick={open} />
       </Freeze>
       <Freeze freeze={!showModal}>
