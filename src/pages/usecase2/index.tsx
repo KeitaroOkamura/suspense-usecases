@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useState, useCallback } from "react";
 import { Tabs, TabList, TabItem, TabPanel } from "~/components/Tabs";
 import { ExampleOfInput, ExampleOfScrollPosition } from "~/components/Example";
+import { Freeze } from "~/components/Freeze";
 
 const UseCase2: NextPage = () => {
   const [selectedIndex, setSelectedIndex] = useState(1);
@@ -35,12 +36,16 @@ const UseCase2: NextPage = () => {
         </TabItem>
       </TabList>
 
-      <TabPanel show={isTabSelected(1)}>
-        <ExampleOfScrollPosition />
-      </TabPanel>
-      <TabPanel show={isTabSelected(2)}>
-        <ExampleOfInput />
-      </TabPanel>
+      <Freeze freeze={!isTabSelected(1)}>
+        <TabPanel>
+          <ExampleOfScrollPosition />
+        </TabPanel>
+      </Freeze>
+      <Freeze freeze={!isTabSelected(2)}>
+        <TabPanel>
+          <ExampleOfInput />
+        </TabPanel>
+      </Freeze>
     </Tabs>
   );
 };
